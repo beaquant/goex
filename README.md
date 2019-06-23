@@ -1,7 +1,9 @@
-<center>
+<div align="center">
 <img width="409" heigth="205" src="https://upload-images.jianshu.io/upload_images/6760989-dec7dc747846880e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"  alt="GoEx">
-</center>
+</div>
+
 ### GoEx
+
 GoEx project is designed to unify and standardize the interfaces of each digital asset trading platform. The same strategy can be switched to any trading platform at any time without changing any code.
 
 [中文说明](https://raw.githubusercontent.com/nntaoli-project/GoEx/master/README_cn.md)
