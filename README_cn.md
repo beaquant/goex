@@ -1,15 +1,11 @@
-<center>
-<img width="409" heigth="205" src="https://upload-images.jianshu.io/upload_images/6760989-dec7dc747846880e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"  alt="GoEx">
-</center>
-### GoEx
-GoEx project is designed to unify and standardize the interfaces of each digital asset trading platform. The same strategy can be switched to any trading platform at any time without changing any code.
+### GoEx目标
+GoEx项目是为了统一并标准化各个数字资产交易平台的接口而设计，同一个策略可以随时切换到任意一个交易平台，而不需要更改任何代码。
 
-[中文说明](https://raw.githubusercontent.com/nntaoli-project/GoEx/master/README_cn.md)
-### Exchanges are supported by GoEx `22+`
-| Exchange | Market API | Order API | Version |   
+### GoEx已支持交易所 `22+`
+| 交易所 | 行情接口 | 交易接口 | 版本号 |   
 | ---   | ---     | ---     | ---   |  
 | hbg.com | Y | Y | 1 |   
-| hbdm.com | Y (REST / WS)| Y |  1 |  
+| hbdm.com | Y| Y |  1 |  
 | okex.com (spot/future)| Y (REST / WS) | Y | 1 |  
 | okex.com (swap future) | Y | Y | 2 |
 | binance.com | Y | Y | 1 |  
@@ -21,7 +17,7 @@ GoEx project is designed to unify and standardize the interfaces of each digital
 | aacoin.com | Y | Y | 1 |   
 | allcoin.ca | Y | Y | * |  
 | big.one | Y | Y | 2\|3 | 
-| fcoin.com | Y (REST / WS) | Y | 2 |  
+| fcoin.com | Y | Y | 2 |  
 | hitbtc.com | Y | Y | * |
 | coinex.com | Y | Y | 1 |
 | exx.com | Y | Y | 1 |
@@ -32,10 +28,9 @@ GoEx project is designed to unify and standardize the interfaces of each digital
 | btcchina.com | Y | Y | 1 |
 | coinbig.com | Y | Y | * |
 
-### Install GoEx
-``` go get github.com/nntaoli-project/GoEx ```
+###安装GoEx库  ``` go get github.com/nntaoli-project/GoEx ```
 
-### Example
+### 例子
 ```golang
 
    package main
@@ -71,7 +66,7 @@ GoEx project is designed to unify and standardize the interfaces of each digital
 
 ```
 
-### websocket Example
+###websocket 使用例子
 ```golang
 import (
 	"github.com/nntaoli-project/GoEx"
@@ -82,9 +77,9 @@ import (
 
 func main() {
 
-	//ws := okcoin.NewOKExFutureWs() //ok future
-	ws := huobi.NewHbdmWs() //huobi future
-	//setup callback
+	//ws := okcoin.NewOKExFutureWs() //ok期货
+	ws := huobi.NewHbdmWs() //huobi期货
+	//设置回调函数
 	ws.SetCallbacks(func(ticker *goex.FutureTicker) {
 		log.Println(ticker)
 	}, func(depth *goex.Depth) {
@@ -92,7 +87,7 @@ func main() {
 	}, func(trade *goex.Trade, contract string) {
 		log.Println(contract, trade)
 	})
-	//subscribe
+	//订阅行情
 	ws.SubscribeTrade(goex.BTC_USDT, goex.NEXT_WEEK_CONTRACT)
 	ws.SubscribeDepth(goex.BTC_USDT, goex.QUARTER_CONTRACT, 5)
 	ws.SubscribeTicker(goex.BTC_USDT, goex.QUARTER_CONTRACT)
@@ -100,17 +95,14 @@ func main() {
 
 ```
 
-# Highly Recommended(IMPORTANCE)
-1. use GoLand development.
-2. turn off the auto format function.
-3. DONOT reformat existing files, which will result in a particularly bad commit.
-4. use the OrderID2 field instead of the OrderID
-
-### How to find us
-Join QQ group: [574829125](#)
-
+### 注意事项
+1. 推荐使用GoLand开发。
+2. 推荐关闭自动格式化功能。
+3. 不建议对现已存在的文件进行重新格式化，这样会导致commit特别糟糕。
+4. 请用OrderID2这个字段代替OrderID
+5. 交流QQ群：574829125
 -----------------
 
-### Buy me a Coffe
+### 欢迎为作者付一碗面钱
 
-<img src="https://raw.githubusercontent.com/nntaoli-project/GoEx/dev/wx_pay.JPG" width="250" alt="Buy me a Coffe">&nbsp;&nbsp;&nbsp;<img src="https://raw.githubusercontent.com/nntaoli-project/GoEx/dev/IMG_1177.jpg" width="250" alt="Buy me a Coffe">
+<img src="https://raw.githubusercontent.com/nntaoli-project/GoEx/dev/wx_pay.JPG" width="250" alt="一碗面钱">&nbsp;&nbsp;&nbsp;<img src="https://raw.githubusercontent.com/nntaoli-project/GoEx/dev/IMG_1177.jpg" width="250" alt="一碗面钱">
